@@ -9,11 +9,11 @@ class ControladorUsuarios{
 				$tabla = "usuarios";
 
 				$item = "usuario";
-				$valor = $_POST["ingUsuario"];
+				$valor = $_POST["ingUsuario"] ?? '';
 
 				$respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
 
-				if($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptar){
+				if(is_array($respuesta) && $respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptar){
 					if($respuesta["estado"] == 1){
 
 						$_SESSION["iniciarSesion"] = "ok";
