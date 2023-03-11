@@ -61,7 +61,9 @@ class ControladorUsuarios{
 
 	static public function ctrCrearUsuario(){
 		if(isset($_POST["nuevoUsuario"])){
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) && preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoUsuario"])){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
+			   preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoUsuario"]) &&
+			   preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])){
 
 				$ruta = "";
 
